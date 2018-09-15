@@ -15,8 +15,8 @@ def getFileName():
 email_send = 'pcctsch@gmail.com'
 #email_send = 'dimmacpj3@sina.com'
 email_receive = 'pcctsch@gmail.com'
-subjects = 'Motion Detected!'
-body = 'Motion deteced!!!'
+subjects = 'Backyard Motion Detected!'
+body = 'Backyard Motion deteced!!!'
 
 
 #create a multipart instance, it represents the email itself
