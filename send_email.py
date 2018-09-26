@@ -19,7 +19,7 @@ emailPart['Subject'] = emailSubject
 
 emailPart.attach(MIMEText(emailTextContent,'plain','utf-8'))
 
-oldDir = '/home/pi/NetgearNas'
+oldDir = '/home/pi/Pictures'
 pics = os.listdir(oldDir)
 for pic in pics:
 	if pic.endswith('.jpg') or pic.endswith('.avi'):
@@ -41,9 +41,16 @@ server.login(sendAddress,'ctswest.co.nz')
 server.sendmail(sendAddress,recieveAddress,emailText)
 server.quit()
 
-newDir = '/home/pi/NetgearNas/SavedPics'
+'''newDir = '/home/pi/NetgearNas/SavedPics'
 for pic in pics:
 	if pic.endswith('.jpg') or pic.endswith('.avi'):
 		picOldPath = oldDir + '/' + pic
 		picNewPath = newDir + '/' + pic
+		filePic = open(pic,'rd')
+		filePic.close()
 		shutil.move(picOldPath,picNewPath)
+'''
+os.system('sudo cp *.avi /home/pi/NetgearNas')
+os.system('sudo cp *.jpg /home/pi/NetgearNas')
+os.system('sudo mv *.avi')
+os.system('sudo mv *.jpg')
