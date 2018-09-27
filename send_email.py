@@ -24,6 +24,7 @@ pics = os.listdir(oldDir)
 for pic in pics:
 	if pic.endswith('.jpg') or pic.endswith('.avi'):
 		filename = pic
+		os.chdir('/home/pi/Pictures')
 		attachedPic = open(filename,'rd')
 		picPart = MIMEBase('application','octet-stream')
 		picPart.set_payload(attachedPic.read())
@@ -43,14 +44,14 @@ server.quit()
 
 '''newDir = '/home/pi/NetgearNas/SavedPics'
 for pic in pics:
-	if pic.endswith('.jpg') or pic.endswith('.avi'):
+	if pic.endswith('.jpg'):
 		picOldPath = oldDir + '/' + pic
 		picNewPath = newDir + '/' + pic
 		filePic = open(pic,'rd')
 		filePic.close()
-		shutil.move(picOldPath,picNewPath)
+		shutil.copy(picOldPath,picNewPath)
 '''
-os.system('sudo cp *.avi /home/pi/NetgearNas')
 os.system('sudo cp *.jpg /home/pi/NetgearNas')
-os.system('sudo mv *.avi')
-os.system('sudo mv *.jpg')
+os.system('sudo cp *.avi /home/pi/NetgearNas')
+os.system('sudo rm *.avi')
+os.system('sudo rm *.jpg')
